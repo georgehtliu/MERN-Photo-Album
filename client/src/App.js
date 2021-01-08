@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { AppBar, Typography, Grow, Grid, Container } from "@material-ui/core";
-import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux"; // get dispatch function
 
 import { getPosts } from "./actions/posts";
 import memories from "./images/memories.png";
 import Posts from "./components/Posts/Posts";
 import Form from "./components/Form/Form";
-import useStyles from "./styles";
+import useStyles from "./styles"; // extra styling
 
 const App = () => {
-  const [currentId, setCurrentId] = useState(null);
-  const classes = useStyles();
-  const dispatch = useDispatch();
+  const [currentId, setCurrentId] = useState(null); // initially a null id
+  const classes = useStyles(); // applies js css styling
+  const dispatch = useDispatch(); // dispatches a given action
 
   useEffect(() => {
     dispatch(getPosts());
-  }, [dispatch]);
+  }, [dispatch]); // dispatch the getPost action after the first rerender
 
   return (
     <Container maxWidth="lg">
@@ -35,9 +35,11 @@ const App = () => {
           >
             <Grid item xs={12} sm={4}>
               <Form currentId={currentId} setCurrentId={setCurrentId} />
+              {/* form with current id and function to change id as props */}
             </Grid>
             <Grid item xs={12} sm={7}>
               <Posts setCurrentId={setCurrentId} />
+              {/* Posts with setCurrentId as a prop */}
             </Grid>
           </Grid>
         </Container>

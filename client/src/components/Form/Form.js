@@ -1,31 +1,40 @@
 import React, { useState, useEffect } from "react";
 import { TextField, Button, Typography, Paper } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
-import FileBase from "react-file-base64";
+import FileBase from "react-file-base64"; // for photos form input
 
 import useStyles from "./styles";
-import { createPost } from "../../actions/posts";
+import { createPost, updatePost } from "../../actions/posts";
 
 const Form = ({ currentId, setCurrentId }) => {
+  // destructure currentId and setCurrentID (setter function)
+
   const [postData, setPostData] = useState({
     creator: "",
     title: "",
     message: "",
     tags: "",
     selectedFile: "",
-  });
+  }); // create a new state as an object with the above keys and "" as values
+
   const post = useSelector((state) =>
     currentId ? state.posts.find((message) => message._id === currentId) : null
   );
-  const dispatch = useDispatch();
-  const classes = useStyles();
+
+  // if the current id exists, get the message from the redux store with matching id,
+  // otherwise return null
+
+  const dispatch = useDispatch(); // dispatch function
+  const classes = useStyles(); // js css styling
 
   useEffect(() => {
-    if (post) setPostData(post);
+    // after rerender
+    if (post) setPostData(post); // if post exists, set postData to the post object
   }, [post]);
 
   const clear = () => {
-    setCurrentId(0);
+    // handles clearing the inputs
+    setCurrentId(0); // set id to 0
     setPostData({
       creator: "",
       title: "",
@@ -36,9 +45,15 @@ const Form = ({ currentId, setCurrentId }) => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // prevent refresh when submitting
 
-    dispatch(createPost(postData));
+    // sees if there's an existing id
+    if (currentId) {
+      dispatch(updatePost(currentId, postData)); // update the post, passing in an id and the existing data
+    } else {
+      // no existing id so you create a new post
+      dispatch(createPost(postData));
+    }
   };
 
   return (
@@ -47,7 +62,7 @@ const Form = ({ currentId, setCurrentId }) => {
         autoComplete="off"
         noValidate
         className={`${classes.root} ${classes.form}`}
-        onSubmit={handleSubmit}
+        onSubmit={handleSubmit} // what happens when form is submitted
       >
         <Typography variant="h6">
           {currentId ? `Editing "${post.title}"` : "Creating a Memory"}
@@ -57,9 +72,9 @@ const Form = ({ currentId, setCurrentId }) => {
           variant="outlined"
           label="Creator"
           fullWidth
-          value={postData.creator}
-          onChange={(e) =>
-            setPostData({ ...postData, creator: e.target.value })
+          value={postData.creator} // creator is what's shown
+          onChange={
+            (e) => setPostData({ ...postData, creator: e.target.value }) // keep other properties but change creator
           }
         />
         <TextField
@@ -88,8 +103,8 @@ const Form = ({ currentId, setCurrentId }) => {
           label="Tags (coma separated)"
           fullWidth
           value={postData.tags}
-          onChange={(e) =>
-            setPostData({ ...postData, tags: e.target.value.split(",") })
+          onChange={
+            (e) => setPostData({ ...postData, tags: e.target.value.split(",") }) // separated by commas
           }
         />
         <div className={classes.fileInput}>
@@ -115,7 +130,7 @@ const Form = ({ currentId, setCurrentId }) => {
           variant="contained"
           color="secondary"
           size="small"
-          onClick={clear}
+          onClick={clear} // clear the inputs
           fullWidth
         >
           Clear
