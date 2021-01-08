@@ -34,7 +34,7 @@ const Form = ({ currentId, setCurrentId }) => {
 
   const clear = () => {
     // handles clearing the inputs
-    setCurrentId(0); // set id to 0
+    setCurrentId(null); // set id to 0
     setPostData({
       creator: "",
       title: "",
@@ -50,9 +50,11 @@ const Form = ({ currentId, setCurrentId }) => {
     // sees if there's an existing id
     if (currentId) {
       dispatch(updatePost(currentId, postData)); // update the post, passing in an id and the existing data
+      clear();
     } else {
       // no existing id so you create a new post
       dispatch(createPost(postData));
+      clear();
     }
   };
 
@@ -69,8 +71,8 @@ const Form = ({ currentId, setCurrentId }) => {
         </Typography>
         <TextField
           name="creator"
-          variant="outlined"
-          label="Creator"
+          variant="standard"
+          label="Author"
           fullWidth
           value={postData.creator} // creator is what's shown
           onChange={
@@ -79,7 +81,7 @@ const Form = ({ currentId, setCurrentId }) => {
         />
         <TextField
           name="title"
-          variant="outlined"
+          variant="standard"
           label="Title"
           fullWidth
           value={postData.title}
@@ -87,8 +89,8 @@ const Form = ({ currentId, setCurrentId }) => {
         />
         <TextField
           name="message"
-          variant="outlined"
-          label="Message"
+          variant="standard"
+          label="Caption"
           fullWidth
           multiline
           rows={4}
@@ -99,8 +101,8 @@ const Form = ({ currentId, setCurrentId }) => {
         />
         <TextField
           name="tags"
-          variant="outlined"
-          label="Tags (coma separated)"
+          variant="standard"
+          label="Hashtags"
           fullWidth
           value={postData.tags}
           onChange={
@@ -124,7 +126,7 @@ const Form = ({ currentId, setCurrentId }) => {
           type="submit"
           fullWidth
         >
-          Submit
+          Add to Gallery
         </Button>
         <Button
           variant="contained"
@@ -133,7 +135,7 @@ const Form = ({ currentId, setCurrentId }) => {
           onClick={clear} // clear the inputs
           fullWidth
         >
-          Clear
+          Clear Form
         </Button>
       </form>
     </Paper>
