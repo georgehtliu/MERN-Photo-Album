@@ -19,8 +19,8 @@ node index.js
 Go to the client directory and starting React:
 
 ```
-npm install
 cd ../client
+npm install
 npm start
 ```
 Visit http://localhost:3000/ on your browser.
