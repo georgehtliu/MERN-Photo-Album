@@ -1,50 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { AppBar, Typography, Grow, Grid, Container } from "@material-ui/core";
-import { useDispatch } from "react-redux"; // get dispatch function
-
-import { getPosts } from "./actions/posts";
-import Posts from "./components/Posts/Posts";
-import Form from "./components/Form/Form";
-import Menu from "./components/MyMenu";
-import useStyles from "./styles"; // extra styling
+import React from "react";
+import { Route, BrowserRouter as Router } from "react-router-dom";
+import Home from "./components/Home";
+import SignIn from "./components/Account/SignIn";
+import SignUp from "./components/Account/SignUp";
 
 const App = () => {
-  const [currentId, setCurrentId] = useState(null); // initially a null id
-  const classes = useStyles(); // applies js css styling
-  const dispatch = useDispatch(); // dispatches a given action
-
-  useEffect(() => {
-    dispatch(getPosts());
-  }, [currentId, dispatch]); // dispatch the getPost action after the first rerender
-
   return (
-    <Container maxWidth="lg">
-      <AppBar className={classes.appBar} position="static" color="inherit">
-        <Typography className={classes.heading} variant="h2" align="center">
-          My Gallery
-          <Menu />
-        </Typography>
-      </AppBar>
-      <Grow in>
-        <Container>
-          <Grid
-            container
-            justify="space-between"
-            alignItems="stretch"
-            spacing={3}
-          >
-            <Grid item xs={12} sm={4}>
-              <Form currentId={currentId} setCurrentId={setCurrentId} />
-              {/* form with current id and function to change id as props */}
-            </Grid>
-            <Grid item xs={12} sm={7}>
-              <Posts setCurrentId={setCurrentId} />
-              {/* Posts with setCurrentId as a prop */}
-            </Grid>
-          </Grid>
-        </Container>
-      </Grow>
-    </Container>
+    <Router>
+      <Route path="/signin" component={SignIn} />
+      <Route path="/signUp" component={SignUp} />
+      <Route path="/" exact component={Home} />
+    </Router>
   );
 };
 
