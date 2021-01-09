@@ -25,4 +25,9 @@ npm start
 ```
 Visit http://localhost:3000/ on your browser.
 
+## New Features?
+
+Passport Authentication
+
+
 
