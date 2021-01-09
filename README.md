@@ -27,7 +27,7 @@ Visit http://localhost:3000/ on your browser.
 
 ## New Features?
 
-Passport Authentication
-Hashtag Display
+- Passport Authentication
+- Hashtag Display
 
 
