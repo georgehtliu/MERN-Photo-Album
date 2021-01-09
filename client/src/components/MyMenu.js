@@ -3,7 +3,7 @@ import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import { Link } from "react-router-dom";
-import MenuIcon from "@material-ui/icons/Menu";
+import MenuBookIcon from "@material-ui/icons/MenuBook";
 
 const MyMenu = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -23,7 +23,8 @@ const MyMenu = () => {
         aria-haspopup="true"
         onClick={handleClick}
       >
-        Open Menu <MenuIcon />
+        Open Menu &nbsp;
+        <MenuBookIcon />
       </Button>
       <Menu
         id="simple-menu"
