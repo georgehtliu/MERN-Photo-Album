@@ -57,7 +57,6 @@ export const deletePost = async (req, res) => {
 };
 
 export const likePost = async (req, res) => {
-  console.log(req.params);
   const { id } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(id))
@@ -72,4 +71,15 @@ export const likePost = async (req, res) => {
   );
 
   res.json(updatedPost);
+};
+
+export const getPostsByHashtag = async (req, res) => {
+  const { hashtag } = req.params;
+
+  try {
+    const postsByHashtag = await PostMessage.find({ tags: hashtag });
+    res.status(200).json(postsByHashtag);
+  } catch (error) {
+    res.status(404).send("failed");
+  }
 };
