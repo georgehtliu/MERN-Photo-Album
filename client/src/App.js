@@ -3,9 +3,9 @@ import { AppBar, Typography, Grow, Grid, Container } from "@material-ui/core";
 import { useDispatch } from "react-redux"; // get dispatch function
 
 import { getPosts } from "./actions/posts";
-import memories from "./images/memories.png";
 import Posts from "./components/Posts/Posts";
 import Form from "./components/Form/Form";
+import Menu from "./components/MyMenu";
 import useStyles from "./styles"; // extra styling
 
 const App = () => {
@@ -22,6 +22,7 @@ const App = () => {
       <AppBar className={classes.appBar} position="static" color="inherit">
         <Typography className={classes.heading} variant="h2" align="center">
           My Gallery
+          <Menu />
         </Typography>
       </AppBar>
       <Grow in>
