@@ -67,7 +67,7 @@ const Form = ({ currentId, setCurrentId }) => {
         onSubmit={handleSubmit} // what happens when form is submitted
       >
         <Typography variant="h6">
-          {currentId ? `Editing "${post.title}"` : "Creating a Memory"}
+          {currentId ? `Editing "${post.title}"` : "Add a Photo to Collection"}
         </Typography>
         <TextField
           name="creator"
