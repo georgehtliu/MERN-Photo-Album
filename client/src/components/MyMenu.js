@@ -23,7 +23,7 @@ const MyMenu = () => {
         aria-haspopup="true"
         onClick={handleClick}
       >
-        Open Menu &nbsp;
+        Menu &nbsp;
         <MenuBookIcon />
       </Button>
       <Menu
