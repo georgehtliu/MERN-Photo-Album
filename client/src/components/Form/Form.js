@@ -19,7 +19,7 @@ const Form = ({ currentId, setCurrentId }) => {
 
   const post = useSelector((state) =>
     currentId ? state.posts.find((message) => message._id === currentId) : null
-  );
+  ); // for editing functionality
 
   // if the current id exists, get the message from the redux store with matching id,
   // otherwise return null
