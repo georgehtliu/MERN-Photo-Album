@@ -83,3 +83,12 @@ export const getPostsByHashtag = async (req, res) => {
     res.status(404).send("failed");
   }
 };
+
+export const getLikedPosts = async (req, res) => {
+  try {
+    const liked = await PostMessage.find({ likeCount: 1 });
+    res.status(200).json(liked);
+  } catch (error) {
+    res.status(404).send("failed");
+  }
+};
