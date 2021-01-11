@@ -37,10 +37,10 @@ const MyMenu = () => {
           <Link to="/gallery">My Gallery</Link>
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <Link to="/signin">Logout</Link>
+          <Link to="/hashtags">Search by Hashtag</Link>
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <Link to="/hashtags">Search by Hashtag</Link>
+          <Link to="/signin">Logout</Link>
         </MenuItem>
       </Menu>
     </div>

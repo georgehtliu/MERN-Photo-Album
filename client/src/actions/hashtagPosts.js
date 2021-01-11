@@ -1,5 +1,8 @@
 import * as api from "../api";
-import { FETCH_BY_HASHTAG } from "../constants/actionTypes";
+import {
+  FETCH_BY_HASHTAG,
+  CLEAR_HASHTAG_POSTS,
+} from "../constants/actionTypes";
 
 export const getPostsByHashtag = (hashtag) => async (dispatch) => {
   try {
@@ -9,4 +12,8 @@ export const getPostsByHashtag = (hashtag) => async (dispatch) => {
   } catch (error) {
     console.log(error);
   }
+};
+
+export const clearHashtagPosts = () => async (dispatch) => {
+  dispatch({ type: CLEAR_HASHTAG_POSTS, payload: [] });
 };

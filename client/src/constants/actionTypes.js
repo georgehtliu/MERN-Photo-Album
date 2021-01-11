@@ -4,3 +4,4 @@ export const DELETE = "DELETE";
 export const FETCH_ALL = "FETCH_ALL";
 export const LIKE = "LIKE";
 export const FETCH_BY_HASHTAG = "FETCH_BY_HASHTAG";
+export const CLEAR_HASHTAG_POSTS = "CLEAR_HASHTAG_POSTS";

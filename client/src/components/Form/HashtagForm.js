@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { TextField, Button, Typography, Paper } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
-import { getPostsByHashtag } from "../../actions/hashtagPosts";
+import {
+  getPostsByHashtag,
+  clearHashtagPosts,
+} from "../../actions/hashtagPosts";
 
 import useStyles from "./styles";
 
@@ -21,6 +24,7 @@ const HashtagForm = () => {
   const clear = () => {
     // handles clearing the inputs
     setHashtag("");
+    dispatch(clearHashtagPosts(hashtag));
   };
 
   const handleSubmit = async (e) => {
