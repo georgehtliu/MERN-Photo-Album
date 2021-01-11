@@ -34,10 +34,13 @@ const MyMenu = () => {
         onClose={handleClose}
       >
         <MenuItem onClick={handleClose}>
-          <Link to="/">My Gallery</Link>
+          <Link to="/gallery">My Gallery</Link>
         </MenuItem>
         <MenuItem onClick={handleClose}>
           <Link to="/signin">Logout</Link>
+        </MenuItem>
+        <MenuItem onClick={handleClose}>
+          <Link to="/hashtags">Search by Hashtag</Link>
         </MenuItem>
       </Menu>
     </div>
