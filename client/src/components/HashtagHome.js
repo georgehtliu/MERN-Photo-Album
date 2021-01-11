@@ -1,9 +1,5 @@
 import React from "react";
 import { AppBar, Typography, Grow, Grid, Container } from "@material-ui/core";
-import { useDispatch } from "react-redux"; // get dispatch function
-
-import { useState, useEffect } from "react";
-import { getPosts } from "../actions/posts";
 import useStyles from "../styles";
 
 import Menu from "./MyMenu";
@@ -12,7 +8,6 @@ import HashtagPosts from "./Posts/HashtagPosts";
 
 const Home = () => {
   const classes = useStyles(); // applies js css styling
-  const dispatch = useDispatch(); // dispatches a given action
 
   return (
     <Container maxWidth="lg">
