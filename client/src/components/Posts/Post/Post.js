@@ -7,7 +7,7 @@ import {
   Button,
   Typography,
 } from "@material-ui/core/";
-import FavoriteIcon from "@material-ui/icons/Favorite";
+import StarIcon from "@material-ui/icons/Star";
 import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 import EditIcon from "@material-ui/icons/Edit";
 import moment from "moment";
@@ -73,13 +73,13 @@ const Post = ({ post, setCurrentId }) => {
           {" "}
           {post.likeCount === 0 ? (
             <>
-              <FavoriteIcon fontSize="small" />
+              <StarIcon fontSize="small" />
               <div>LIKE</div>
             </>
           ) : (
             <>
-              <FavoriteIcon fontSize="small" style={{ color: "green" }} />
-              <div style={{ color: "green" }}>UNLIKE</div>
+              <StarIcon fontSize="small" style={{ color: "pink" }} />
+              <div style={{ color: "pink" }}>UNLIKE</div>
             </>
           )}
         </Button>
