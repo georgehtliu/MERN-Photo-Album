@@ -69,7 +69,7 @@ const HashtagForm = () => {
           onClick={clear} // clear the inputs
           fullWidth
         >
-          Clear Hashtag
+          Clear hashtag
         </Button>
       </form>
     </Paper>

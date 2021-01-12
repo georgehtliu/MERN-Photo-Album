@@ -7,6 +7,7 @@ import MenuBookIcon from "@material-ui/icons/MenuBook";
 
 import { useDispatch } from "react-redux";
 import { getLikedPosts } from "../actions/likedPosts";
+import { clearHashtagPosts } from "../actions/hashtagPosts";
 
 const MyMenu = () => {
   const dispatch = useDispatch();
@@ -16,13 +17,10 @@ const MyMenu = () => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleLiked = () => {
-    setAnchorEl(null);
-    dispatch(getLikedPosts());
-  };
-
   const handleClose = () => {
     setAnchorEl(null);
+    dispatch(getLikedPosts());
+    dispatch(clearHashtagPosts());
   };
 
   return (
@@ -45,7 +43,7 @@ const MyMenu = () => {
         <MenuItem onClick={handleClose}>
           <Link to="/gallery">Home</Link>
         </MenuItem>
-        <MenuItem onClick={handleLiked}>
+        <MenuItem onClick={handleClose}>
           <Link to="/likedPosts">My Liked Posts</Link>
         </MenuItem>
         <MenuItem onClick={handleClose}>
