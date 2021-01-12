@@ -37,6 +37,9 @@ const MyMenu = () => {
           <Link to="/gallery">My Gallery</Link>
         </MenuItem>
         <MenuItem onClick={handleClose}>
+          <Link to="/likedPosts">My Liked Posts</Link>
+        </MenuItem>
+        <MenuItem onClick={handleClose}>
           <Link to="/hashtags">Search by Hashtag</Link>
         </MenuItem>
         <MenuItem onClick={handleClose}>
