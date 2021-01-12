@@ -7,14 +7,15 @@ import {
   Button,
   Typography,
 } from "@material-ui/core/";
-import ThumbUpAltIcon from "@material-ui/icons/ThumbUpAlt";
-import DeleteIcon from "@material-ui/icons/Delete";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import HighlightOffIcon from "@material-ui/icons/HighlightOff";
 import EditIcon from "@material-ui/icons/Edit";
 import moment from "moment";
 import { useDispatch } from "react-redux";
 
 import { likePost, deletePost } from "../../../actions/posts";
 import useStyles from "./styles";
+import { red } from "@material-ui/core/colors";
 
 const Post = ({ post, setCurrentId }) => {
   const dispatch = useDispatch();
@@ -69,15 +70,26 @@ const Post = ({ post, setCurrentId }) => {
           color="primary"
           onClick={() => dispatch(likePost(post._id))}
         >
-          <ThumbUpAltIcon fontSize="small" />{" "}
-          {post.likeCount === 0 ? "LIKE" : "UNLIKE"}{" "}
+          {" "}
+          {post.likeCount === 0 ? (
+            <>
+              <FavoriteIcon fontSize="small" />
+              <div>LIKE</div>
+            </>
+          ) : (
+            <>
+              <FavoriteIcon fontSize="small" style={{ color: "green" }} />
+              <div style={{ color: "green" }}>UNLIKE</div>
+            </>
+          )}
         </Button>
         <Button
           size="small"
           color="primary"
           onClick={() => dispatch(deletePost(post._id))}
         >
-          <DeleteIcon fontSize="small" /> Delete
+          <HighlightOffIcon fontSize="small" style={{ color: "red" }} />{" "}
+          <div style={{ color: "red" }}>Delete</div>
         </Button>
       </CardActions>
     </Card>

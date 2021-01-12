@@ -43,7 +43,7 @@ const MyMenu = () => {
         onClose={handleClose}
       >
         <MenuItem onClick={handleClose}>
-          <Link to="/gallery">My Gallery</Link>
+          <Link to="/gallery">Home</Link>
         </MenuItem>
         <MenuItem onClick={handleLiked}>
           <Link to="/likedPosts">My Liked Posts</Link>
