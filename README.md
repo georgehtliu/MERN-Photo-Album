@@ -1,4 +1,4 @@
-# MERN-Photo-Album
+# PhotoBuddy
 
 A photo album developed using MongoDB, Express, React-Redux and Node. Material UI components were also used to improve responsiveness on multiple size screens.
 
