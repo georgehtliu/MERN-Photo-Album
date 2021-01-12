@@ -16,6 +16,11 @@ const HashtagForm = () => {
 
   const [hashtag, setHashtag] = useState("");
 
+  //   useEffect(() => {
+  //     // after rerender
+  //     if (post) setPostData(post); // if post exists, set postData to the post object
+  //   }, [post]);
+
   const clear = () => {
     // handles clearing the inputs
     setHashtag("");
