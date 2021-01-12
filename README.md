@@ -31,7 +31,7 @@ Visit http://localhost:3000/ on your browser.
 - display posts by hashtags
 - display liked posts
 
-Currently Working On
+# Currently Working On
 
 - Authentication with JWT
 
