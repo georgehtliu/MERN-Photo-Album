@@ -25,9 +25,14 @@ npm start
 ```
 Visit http://localhost:3000/ on your browser.
 
-## Upcoming Features?
+Some Features
 
-- Passport Authentication
-- Hashtag Display
+- create, edit, delete, and like posts
+- display posts by hashtags
+- display liked posts
+
+Currently Working On
+
+- Authentication with JWT
 
 
