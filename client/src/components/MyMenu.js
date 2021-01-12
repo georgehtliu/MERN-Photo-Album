@@ -5,11 +5,20 @@ import MenuItem from "@material-ui/core/MenuItem";
 import { Link } from "react-router-dom";
 import MenuBookIcon from "@material-ui/icons/MenuBook";
 
+import { useDispatch } from "react-redux";
+import { getLikedPosts } from "../actions/likedPosts";
+
 const MyMenu = () => {
+  const dispatch = useDispatch();
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
+  };
+
+  const handleLiked = () => {
+    setAnchorEl(null);
+    dispatch(getLikedPosts());
   };
 
   const handleClose = () => {
@@ -36,7 +45,7 @@ const MyMenu = () => {
         <MenuItem onClick={handleClose}>
           <Link to="/gallery">My Gallery</Link>
         </MenuItem>
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={handleLiked}>
           <Link to="/likedPosts">My Liked Posts</Link>
         </MenuItem>
         <MenuItem onClick={handleClose}>

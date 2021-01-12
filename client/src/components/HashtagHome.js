@@ -6,7 +6,7 @@ import Menu from "./MyMenu";
 import HashtagForm from "./Form/HashtagForm";
 import HashtagPosts from "./Posts/HashtagPosts";
 
-const Home = () => {
+const HashtagHome = () => {
   const classes = useStyles(); // applies js css styling
 
   return (
@@ -40,4 +40,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HashtagHome;

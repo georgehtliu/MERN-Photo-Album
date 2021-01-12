@@ -10,3 +10,4 @@ export const deletePost = (id) => axios.delete(`${url}/${id}`);
 export const likePost = (id) => axios.patch(`${url}/${id}/likePost`);
 export const getPostsByHashtag = (hashtag) =>
   axios.get(`${url}/hashtags/${hashtag}`); //"/hashtags/:hashtag"
+export const getLikedPosts = () => axios.get(`${url}/liked`);
