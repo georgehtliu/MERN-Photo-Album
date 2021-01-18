@@ -1,6 +1,7 @@
 import React from "react";
 import { AppBar, Typography, Grow, Grid, Container } from "@material-ui/core";
 import useStyles from "../styles";
+import Navbar from "./navbar/Navbar";
 
 import Menu from "./MyMenu";
 import AllLikedPosts from "./Posts/AllLikedPosts";
@@ -10,12 +11,7 @@ const LikedPosts = () => {
 
   return (
     <Container maxWidth="lg">
-      <AppBar className={classes.appBar} position="static" color="inherit">
-        <Typography className={classes.heading} variant="h2" align="center">
-          My Gallery
-          <Menu />
-        </Typography>
-      </AppBar>
+      <Navbar />
       <Grow in>
         <Container>
           <Grid
