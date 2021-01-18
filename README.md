@@ -33,6 +33,6 @@ Visit http://localhost:3000/ on your browser.
 
 ## Currently Working On
 
-- Authentication with JWT
+- Authentication with Google OAuth
 
 
